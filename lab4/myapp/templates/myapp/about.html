@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+
+{% block page_title %}About{% endblock %}
+{% block nav-link-about %}active{% endblock %}
+
+{% block content %}
+    
+    <h1 class="mt-5">About</h1>
+    {% if lucky_number == unlucky_number %}
+      <p><strong>Don't worry, be happy!</strong></p>
+
+    {% else %}
+      <p>Your lucky number: <strong>{{ lucky_number }}</strong></p>
+      <p>Your unlucky number: <strong>{{ unlucky_number }}</strong></p>
+    {% endif %}
+
+    <ul>
+      {% for it in mytech %}
+        <li><a href="{{ it.url }}">{{ it.name }}</a>: {{ it.level }}</li>
+      {% endfor %}
+    </ul>
+    
+{% endblock %}

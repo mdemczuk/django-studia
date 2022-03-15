@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+
+{% block page_title %}Blog{% endblock %}
+{% block nav-link-blog %}active{% endblock %}
+
+{% block content %}
+    
+    <h1 class="mt-5">Blog</h1>
+
+    <ul>
+    {% if object_list %}
+        {% for obj in object_list %}
+            <li>
+              <h3>{{ obj.title|title }}</h3>
+              <p>{{ obj.body }}</p>
+              <p>{{ obj.date_create }} ({{ obj.date_create|timesince }} ago)</p>
+              <p><b>Published: {{ obj.date_publish }}</b></p>
+            </li>      
+    {% endfor %}
+    {% else %}
+        <li>Sorry, no posts to show.</li>
+    {% endif %}
+    </ul>
+
+{% endblock %}

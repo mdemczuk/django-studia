@@ -1,0 +1,27 @@
+main > .container {
+  padding-top: 60px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  width: 900px;
+}
+
+td, th {
+  padding: 8px;
+}
+
+th {
+  padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.pside {
+  color: gray;
+}
+
+tr:nth-child(even){background-color: #dddddd;}

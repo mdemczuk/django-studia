@@ -1,0 +1,45 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block page_title %}Home{% endblock %}
+{% block nav-link-home %}active{% endblock %}
+
+
+{% block content %}
+    
+    <h1 class="mt-5">Home</h1>
+    <p>This is my home page</p>
+
+    <img src="{% static 'myapp/img/django-logo.png' %}" width="200px" alt="Django logo" />
+
+    {% if some_bool %}
+        <p>My number: {{ mynumber }}</p>
+        {% if mynumber == 7 %}
+          <p>You are lucky</p>
+        {% elif mynumber == 13 %}
+           <p>You have no luck</p>
+        {% endif %}
+        
+    {% else %}
+        <p>You are not allowed to see the number</p>
+    {% endif %}
+
+    <p>You have <strong>{{ some_lst }}</strong> items</p>
+    <ul>
+    {% for number in some_lst %}
+        <li>{{ number }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>{{ some_lst.1 }}</p>
+
+    {% for key, value in some_dict.items %}
+      <p>{{ key }} - {{ value }}</p>
+    {% endfor %}
+
+    <p>{{ some_dict.A }}</p>
+
+
+{% endblock %}
+
+

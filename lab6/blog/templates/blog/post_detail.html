@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+
+{% block page_title %}Blog{% endblock %}
+{% block nav-link-blog %}active{% endblock %}
+
+{% block content %}
+    
+    <h1 class="mt-5">Blog Post</h1>
+
+    {% include 'blog/includes/category_widget.html' with category_name=category_name category_list=category_list %}
+
+
+    <h2>{{ object.title }}</h2>
+    <p class="md2html">{{ object.body|safe }}</p>
+    <p>{{ object.date_publish }}</p>
+    
+{% endblock %}

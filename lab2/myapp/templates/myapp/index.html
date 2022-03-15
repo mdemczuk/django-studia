@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My website | Home</title>
+  </head>
+
+  <body>
+
+    <p>
+      <a href="/">Home</a> |
+      <a href="/contact/">Contact</a>
+    </p>
+
+    <h1>Home</h1>
+
+
+    {% if some_bool %}
+        <p>My number: {{ mynumber }}</p>
+        {% if mynumber == 7 %}
+          <p>You are lucky</p>
+        {% elif mynumber == 13 %}
+           <p>You have no luck</p>
+        {% endif %}
+        
+    {% else %}
+        <p>You are not allowed to see the number</p>
+    {% endif %}
+
+    <p>You have <strong>{{ some_lst }}</strong> items</p>
+    <ul>
+    {% for number in some_lst %}
+        <li>{{ number }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>{{ some_lst.1 }}</p>
+
+    {% for key, value in some_dict.items %}
+      <p>{{ key }} - {{ value }}</p>
+    {% endfor %}
+
+    <p>{{ some_dict.A }}</p>
+
+
+  </body>
+
+</html>

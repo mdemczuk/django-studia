@@ -1,0 +1,57 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block page_title %}Covid19{% endblock %}
+{% block nav-link-home %}active{% endblock %}
+
+{% block page_level_css %}
+<link rel="stylesheet" href="{% static 'covid19/css/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    
+    <h1 class="mt-5">Covid19</h1>
+    {% for country in countries %}
+      {% if country.country_code != current_country_code %}
+      <a href="{% url 'covid19:index' country.country_code %}"> {{ country.name }}</a>
+      {% else %}
+        {{ country.name }}
+      {% endif %}
+      | 
+    {% endfor %}
+    <br/><br/>
+    <p><strong>Global cases</strong></p>
+    <table>
+    <tr>
+      <th>Total confirmed cases</th>
+      <th>Total deaths</th>
+      <th>Total recovered</th>
+      <th>Last modification</th>
+    </tr>
+    <tr>
+      <td>{{ global_data.TotalConfirmed }}</td>
+      <td>{{ global_data.TotalDeaths }}</td>
+      <td>{{ global_data.TotalRecovered }}</td>
+      <td class="pside">{{ global_data.Date }}</td>
+    </tr>
+  </table>
+
+    <br/><br>
+    <p><strong>Cases in {{ selected_country.Country }} </strong></p>
+    <table>
+    <tr>
+      <th>Total confirmed cases</th>
+      <th>Total deaths</th>
+      <th>Total recovered</th>
+      <th>Last modification</th>
+    </tr>
+    <tr>
+      <td>{{ selected_country.TotalConfirmed }}</td>
+      <td>{{ selected_country.TotalDeaths }}</td>
+      <td>{{ selected_country.TotalRecovered }}</td>
+      <td class="pside">{{ selected_country.Date }}</td>
+    </tr>
+  </table>
+
+{% endblock %}
